@@ -1,0 +1,9 @@
+const express = require('express');
+
+var app = express();
+
+require('./routes/siriusRoutes')(app);
+
+const PORT = process.env.PORT || '5000';
+
+app.listen(PORT);
