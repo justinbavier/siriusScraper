@@ -15,16 +15,20 @@ module.exports = app => {
 
     request(options)
       .then(function(response) {
-        const current = JSON.stringify(response);
+        
+        const timeInMils = new Date().getTime();
+        const scrapedFilename = './json/gorilla_scrape-'+timeInMils+'.json';
+        
+        const fileData = JSON.stringify(response);
         // change filename by timestamp
-        fs.writeFile('./json/current.json', current, 'utf8', function(err) {
+        fs.writeFile(scrapedFilename, fileData, 'utf8', function(err) {
           if (err) {
             return console.log(err);
           }
-          console.log('The file was saved!');
+          console.log('The file was saved as '+scrapedFilename+'!');
         });
         // probably make this more serious
-        return res.send('good stuff m8');
+        return res.send(fileData);
       })
       .catch(function(err) {
         console.log(err);
