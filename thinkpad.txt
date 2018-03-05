@@ -1,0 +1,22 @@
+THA GOAL
+========
+Capture real-time streaming data from Sirius channels 94-99 and store it in a database.
+Once data is stored, build a website dashboard where an admin can view all data, and an artist (comedian) can view all data relevant to their streams.
+
+
+THA PROCESS
+===========
+
+1)	Visit url: https://player.siriusxm.com/#/player/live
+	a)	How do we isolate the right now-playing page?
+
+2)	Obtain and store cookie from 'now-playing-live' response
+	a)	Where does the cookie live?
+	b)	How do we save cookie text onto the server?
+	c)	Does one cookie apply across all 6 channels?
+
+3)	Make a request to the Sirius API with our cookie and save that JSON response.
+
+4)	Parse our JSON resonse to get the data we want.
+
+5)	Store our data in a database.
